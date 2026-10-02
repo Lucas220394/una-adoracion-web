@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNA ADORACIÓN — Música de adoración</title>
+  <meta name="description" content="UNA ADORACIÓN: música de adoración. Escucha nuestro último sencillo, mira los videos, conoce las próximas fechas y contrátanos para tu evento.">
+  <meta property="og:title" content="UNA ADORACIÓN">
+  <meta property="og:description" content="Música de adoración. Escucha, mira y contrata.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/foto-04.jpg">
+  <link rel="icon" type="image/png" href="img/logo-fire.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__logo" aria-label="UNA ADORACIÓN — inicio"><img src="img/logo-white.png" alt="UNA ADORACIÓN"></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#esencia">Nosotros</a>
+      <a href="#musica">Música</a>
+      <a href="#fechas">Fechas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#contacto" class="nav__cta-mobile">Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn--sm nav__cta">Contratar</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <img class="hero__bg" src="img/foto-04.jpg" alt="">
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__content">
+        <span class="pill"><i class="dot"></i> Música de adoración</span>
+        <h1>Una sola voz.<br><em>Una adoración.</em></h1>
+        <p class="hero__sub">Canciones para vivir en la presencia de Dios.<br><strong>Nuevo sencillo: “En el río”.</strong></p>
+        <div class="hero__cta">
+          <a href="#contacto" class="btn">Contáctanos</a>
+          <a href="#musica" class="btn btn--dark">Escuchar música →</a>
+        </div>
+      </div>
+      <div class="player glass" id="player" aria-label="Reproductor de música">
+        <img class="player__cover" id="plCover" src="img/foto-04.jpg" alt="">
+        <div class="player__meta">
+          <span class="player__label"><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i> Sonando ahora</span>
+          <strong id="plTitle">En el río</strong>
+          <span id="plArtist">UNA ADORACIÓN</span>
+        </div>
+        <div class="player__controls">
+          <button class="pbtn" id="plPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 6h2v12H6zM20 6v12L9.5 12z"/></svg></button>
+          <button class="pbtn pbtn--main" id="plPlay" aria-label="Reproducir"><svg class="i-play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+          <button class="pbtn" id="plNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16 6h2v12h-2zM4 6l10.5 6L4 18z"/></svg></button>
+        </div>
+        <canvas class="player__wave" id="plWave" width="360" height="56" aria-hidden="true"></canvas>
+        <div class="player__seek">
+          <span id="plCur">0:00</span>
+          <input type="range" id="plSeek" min="0" max="100" value="0" step="0.1" aria-label="Progreso">
+          <span id="plDur">0:00</span>
+        </div>
+        <p class="player__note" id="plNote" hidden></p>
+        <audio id="plAudio" preload="metadata"></audio>
+      </div>
+    </section>
+
+    <!-- 01 ESENCIA -->
+    <section class="section" id="esencia">
+      <div class="worldmap" id="worldmap" aria-hidden="true">
+        <div class="worldmap__inner">
+          <img src="img/mapa-mundi.svg" alt="" draggable="false">
+          <!-- Ciudades: --lon y --lat en grados; .pin--l pone la etiqueta a la izquierda -->
+          <span class="pin" style="--lon:-56.19; --lat:-34.90"><i></i><b>Montevideo</b></span>
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="kicker reveal"><b>01</b> Nuestra esencia</p>
+        <h2 class="statement reveal">No hacemos conciertos.<br><em>Creamos espacios</em><br>para encontrarnos con Él.</h2>
+        <div class="split">
+          <p class="lead reveal">UNA ADORACIÓN es un grupo de música cristiana nacido para servir a la iglesia y acompañar a una generación que quiere vivir cerca de Dios. Canciones sencillas, profundas y hechas para cantarse juntos.</p>
+          <ul class="stats reveal">
+            <li><strong data-count="364">0</strong><span>Publicaciones</span></li>
+            <li><strong data-count="22">0</strong><span>Mil seguidores</span></li>
+            <li><strong>1</strong><span>Un solo corazón</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MÚSICA -->
+    <section class="section section--alt" id="musica">
+      <div class="wrap">
+        <p class="kicker reveal"><b>02</b> Música</p>
+        <h2 class="h2 reveal">Escúchanos en<br><em>todas las plataformas.</em></h2>
+
+        <article class="feature reveal">
+          <div class="feature__art"><!-- Reemplazar por la portada oficial de “En el río” --><img src="img/foto-04.jpg" alt="Portada de “En el río”" loading="lazy"></div>
+          <div class="feature__info">
+            <span class="tag">Sencillo destacado</span>
+            <h3>“En el río”</h3>
+            <p class="muted">Nuestro último sencillo ya está disponible. Un canto para volver a la fuente y dejarnos llevar por Su presencia.</p>
+            <div class="platforms">
+              <a href="#" class="btn">Spotify</a>
+              <a href="#" class="btn btn--dark">YouTube Music</a>
+              <a href="#" class="btn btn--dark">Apple Music</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARRUSEL DE MÚSICA (pistas y portadas en js/carousel.js) -->
+        <div class="mc reveal" id="mc" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Carrusel de canciones">
+          <div class="mc__stage" id="mcStage"></div>
+          <button class="mc__play" id="mcPlay" aria-label="Reproducir"><svg class="i-play" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+          <button class="mc__nav mc__nav--prev" id="mcPrev" aria-label="Canción anterior"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="mc__nav mc__nav--next" id="mcNext" aria-label="Canción siguiente"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div class="mc__dots" id="mcDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 FECHAS -->
+    <section class="section" id="fechas">
+      <div class="wrap">
+        <p class="kicker reveal"><b>03</b> Próximas fechas</p>
+        <h2 class="h2 reveal">La próxima noche<br><em>nos espera.</em></h2>
+        <ul class="events">
+          <li class="event reveal">
+            <span class="event__date"><strong>15</strong> NOV 2026</span>
+            <div class="event__info"><h3>Nombre del evento</h3><p class="muted">Iglesia / Lugar · Ciudad</p></div>
+            <span class="status status--open">Disponible</span>
+            <a href="#contacto" class="btn btn--sm btn--dark">Info</a>
+          </li>
+          <li class="event reveal">
+            <span class="event__date"><strong>06</strong> DIC 2026</span>
+            <div class="event__info"><h3>Nombre del evento</h3><p class="muted">Iglesia / Lugar · Ciudad</p></div>
+            <span class="status status--open">Disponible</span>
+            <a href="#contacto" class="btn btn--sm btn--dark">Info</a>
+          </li>
+          <li class="event reveal">
+            <span class="event__date"><strong>20</strong> DIC 2026</span>
+            <div class="event__info"><h3>Nombre del evento</h3><p class="muted">Iglesia / Lugar · Ciudad</p></div>
+            <span class="status">Agotado</span>
+            <a href="#contacto" class="btn btn--sm btn--dark">Info</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 GALERÍA -->
+    <section class="section" id="galeria">
+      <div class="wrap">
+        <p class="kicker reveal"><b>04</b> Archivo visual</p>
+        <h2 class="h2 reveal">A través de<br><em>nuestros ojos.</em></h2>
+        <!-- Reemplazar cada .ph vacío por <img src="img/foto.jpg" alt="..."> -->
+        <div class="gallery">
+          <figure class="ph ph--tall reveal"><img src="img/foto-02.jpg" alt="UNA ADORACIÓN en vivo" loading="lazy"><figcaption>01 · En vivo</figcaption></figure>
+          <figure class="ph reveal"><img src="img/foto-01.jpg" alt="Intimidad con Dios" loading="lazy"><figcaption>02 · Intimidad</figcaption></figure>
+          <figure class="ph reveal"><img src="img/foto-04.jpg" alt="Guitarrista cantando" loading="lazy"><figcaption>03 · Adoración</figcaption></figure>
+          <figure class="ph reveal"><figcaption>05 · Próximamente</figcaption></figure>
+          <figure class="ph ph--wide reveal"><figcaption>04 · Próximamente</figcaption></figure>
+          <figure class="ph reveal"><figcaption>06 · Próximamente</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="wrap wrap--faq">
+        <div class="faq__head">
+          <p class="kicker reveal"><b>05</b> Preguntas frecuentes</p>
+          <h2 class="h2 reveal">Todo lo que<br><em>quieres saber.</em></h2>
+          <p class="muted reveal">¿No encuentras tu respuesta? Escríbenos desde el formulario de contacto.</p>
+          <a href="#contacto" class="btn btn--dark reveal">Contactar →</a>
+        </div>
+        <div class="faq" id="faq-list">
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a1" id="q1">¿Cómo puedo invitar a UNA ADORACIÓN a mi evento?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a1" role="region" aria-labelledby="q1"><div><p>Completa el formulario de contacto con la fecha, el lugar y el tipo de evento (iglesia, conferencia, retiro, concierto). Te responderemos por correo o WhatsApp para coordinar los detalles.</p></div></div>
+          </div>
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a2" id="q2">¿Qué tipo de eventos tocan?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a2" role="region" aria-labelledby="q2"><div><p>Reuniones de iglesia, conferencias, encuentros de jóvenes, retiros y conciertos de adoración. Si tu evento es diferente, cuéntanos y lo conversamos.</p></div></div>
+          </div>
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a3" id="q3">¿Con cuánta anticipación debo escribirles?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a3" role="region" aria-labelledby="q3"><div><p>Mientras antes, mejor: así podemos organizar la agenda y la logística. Si tu fecha es cercana, escríbenos igual y vemos si es posible.</p></div></div>
+          </div>
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a4" id="q4">¿Qué necesitan del lugar o de la organización?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a4" role="region" aria-labelledby="q4"><div><p>Una vez confirmada la fecha te enviamos los requerimientos técnicos (sonido, escenario y tiempos de prueba) y coordinamos el traslado y la logística según el lugar.</p></div></div>
+          </div>
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a5" id="q5">¿Dónde puedo escuchar su música?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a5" role="region" aria-labelledby="q5"><div><p>En Spotify, YouTube Music y Apple Music. También puedes ver videos y sesiones en nuestro canal de YouTube y seguirnos en Instagram <a href="https://www.instagram.com/unaadoracionmusica/" target="_blank" rel="noopener">@unaadoracionmusica</a>.</p></div></div>
+          </div>
+          <div class="faq__item glass reveal">
+            <h3><button class="faq__q" aria-expanded="false" aria-controls="a6" id="q6">¿Cuál es su último lanzamiento?<span class="faq__icon" aria-hidden="true"></span></button></h3>
+            <div class="faq__a" id="a6" role="region" aria-labelledby="q6"><div><p>Nuestro último sencillo es “En el río”, ya disponible en todas las plataformas. Estamos trabajando en lo próximo, ¡síguenos para enterarte!</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CONTACTO -->
+    <section class="section section--cta" id="contacto">
+      <div class="wrap">
+        <p class="kicker reveal"><b>06</b> Contacto y bookings</p>
+        <h2 class="statement reveal">¿Quieres que UNA ADORACIÓN<br>sea parte de tu <em>evento?</em></h2>
+        <div class="contact">
+          <form class="form reveal" id="form">
+            <div class="form__row">
+              <label>Nombre<input type="text" name="nombre" required></label>
+              <label>Correo<input type="email" name="correo" required></label>
+            </div>
+            <div class="form__row">
+              <label>Fecha del evento<input type="date" name="fecha"></label>
+              <label>Lugar / Ciudad<input type="text" name="lugar"></label>
+            </div>
+            <label>Mensaje<textarea name="mensaje" rows="4" required></textarea></label>
+            <button type="submit" class="btn">Enviar por WhatsApp</button>
+            <p class="form__note muted" id="formNote"></p>
+          </form>
+          <aside class="contact__info reveal">
+            <p class="muted">Instagram</p>
+            <a href="https://www.instagram.com/unaadoracionmusica/" target="_blank" rel="noopener">@unaadoracionmusica</a>
+            <p class="muted">YouTube</p>
+            <a href="https://www.youtube.com/@unaadoracionmusica" target="_blank" rel="noopener">una adoración música</a>
+            <p class="muted">Correo</p>
+            <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <img src="img/logo-fire.png" alt="UNA ADORACIÓN" class="footer__logo">
+        <p class="footer__big">Nos vemos<br><em>en Su presencia.</em></p>
+      </div>
+      <div class="footer__cols">
+        <div><h4>Navegación</h4><a href="#esencia">Nosotros</a><a href="#musica">Música</a><a href="#fechas">Fechas</a><a href="#galeria">Galería</a></div>
+        <div><h4>Redes</h4><a href="https://www.instagram.com/unaadoracionmusica/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@unaadoracionmusica" target="_blank" rel="noopener">YouTube</a><a href="#">Spotify</a></div>
+        <div><h4>Contacto</h4><a href="#contacto">Bookings</a><a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></div>
+      </div>
+      <p class="muted footer__legal">© <span id="year"></span> UNA ADORACIÓN. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/carousel.js"></script>
+</body>
+</html>
