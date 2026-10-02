@@ -118,7 +118,11 @@
   .faq__head { position: static; }
   .faq__q { padding: 20px; font-size: .96rem; }
   .faq__a p { padding: 0 20px 22px; }
-  .hero { padding: 104px 20px 250px; }
+  .hero { padding: calc(100vw * .4219 + 104px) 20px 250px; }
+  /* Celular: el video se muestra en una franja panorámica completa (sin recortar) bajo el menú */
+  .hero__media { inset: 82px 0 auto 0; height: calc(100vw * .4219); z-index: 0; transform: none !important; -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
+  .hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12, 12, 13, .45), rgba(12, 12, 13, .1) 35%, rgba(12, 12, 13, .35)); pointer-events: none; }
+  .hero__bg, .hero__video { object-position: center; filter: grayscale(.8) contrast(1.08) brightness(.95); }
   .hero__content { gap: 20px; }
   .hero__sub { font-size: .95rem; }
   .player { grid-template-columns: auto 1fr auto; grid-template-areas: "cover meta controls" "wave wave wave" "seek seek seek"; padding: 12px 14px; gap: 8px 12px; bottom: 16px; }
@@ -187,6 +191,7 @@
 .pin b { position: absolute; left: 14px; top: -11px; padding: 4px 10px; border-radius: 99px; font: 500 .62rem/1 var(--font); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; color: var(--text); background: rgba(255, 255, 255, .1); border: 1px solid var(--glass-brd); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .pin--l b { left: auto; right: 14px; }
 @media (max-width: 920px) {
+  .sec-bg::after { background: linear-gradient(to bottom, var(--bg) 0%, rgba(12, 12, 13, .78) 18%, rgba(12, 12, 13, .8) 82%, var(--bg) 100%), radial-gradient(ellipse 80% 40% at 80% 15%, rgba(242, 92, 42, .18), transparent 70%); }
   .worldmap__inner { width: 1900px; left: 0; transform: translate(calc(-34.4% + 130px), 16.3%); }
   .pin b { font-size: .54rem; padding: 3px 8px; }
 }
