@@ -13,8 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=4">
-  <link rel="stylesheet" href="css/effects.css?v=4">
+  <link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/effects.css?v=6">
 </head>
 <body>
   <div class="progress" id="progress" aria-hidden="true"></div>
@@ -37,7 +38,12 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <img class="hero__bg" src="img/foto-04.jpg" alt="">
+      <div class="hero__media" id="heroMedia" aria-hidden="true">
+        <img class="hero__bg" src="video/hero-poster.jpg" alt="" fetchpriority="high">
+        <!-- Video de fondo (30 s, sin audio). Se carga después de que la página termina de cargar; ver js/main.js -->
+        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" tabindex="-1"
+               data-src-lg="video/hero-1280.mp4" data-src-sm="video/hero-640.mp4"></video>
+      </div>
       <div class="hero__shade" aria-hidden="true"></div>
       <div class="hero__content">
         <span class="pill"><i class="dot"></i> Música de adoración</span>
@@ -258,7 +264,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4"></script>
-  <script src="js/carousel.js?v=4"></script>
+  <script src="js/main.js?v=6"></script>
+  <script src="js/carousel.js?v=6"></script>
 </body>
 </html>

@@ -25,11 +25,11 @@ const MC_TRACKS = [
     el.className = 'mc__card';
     el.innerHTML = `
       <div class="mc__face">
-        <img src="${t.cover}" alt="Portada de ${t.title}" draggable="false">
+        <img src="${t.cover}" alt="Portada de ${t.title}" draggable="false" loading="lazy" decoding="async">
         <div class="mc__shade"></div>
         <div class="mc__txt"><span>${t.artist}</span><strong>${t.title}</strong></div>
       </div>
-      <div class="mc__ref"><img src="${t.cover}" alt="" draggable="false"><i></i></div>`;
+      <div class="mc__ref"><img src="${t.cover}" alt="" draggable="false" loading="lazy" decoding="async"><i></i></div>`;
     el.addEventListener('click', () => { if (!dragged && i !== cur) go(i); });
     stage.append(el);
     return el;

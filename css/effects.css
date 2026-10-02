@@ -54,7 +54,12 @@
 .event.reveal.in:hover { transform: translateX(6px); transition-delay: 0s; }
 .member.reveal.in:hover { transform: translateY(-8px); transition-delay: 0s; border-color: rgba(242, 92, 42, .5); }
 .word { opacity: calc(.18 + var(--p, 0) * .82); transition: opacity .25s linear; }
-.hero__bg { animation: none; will-change: transform; }
+.hero__bg { animation: none; transform: none; }
+.hero__media { position: absolute; inset: 0; z-index: -2; overflow: hidden; will-change: transform; transform: scale(1.06); }
+.hero__bg, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%; filter: grayscale(.9) contrast(1.08) brightness(.85); }
+.hero__video { opacity: 0; transition: opacity 1.4s ease; }
+.hero__video.ready { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero__video { display: none; } }
 .hero__content, .player { will-change: transform, opacity; }
 .ph img { height: 118%; margin-top: -9%; will-change: transform; }
 .ph:hover img { transform: none; }

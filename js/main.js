@@ -55,7 +55,7 @@ const wordGroups = statements.map(h => {
 
 // ===== Efectos ligados al scroll (parallax, progreso, palabras) =====
 const progress = $('progress');
-const heroBg = document.querySelector('.hero__bg');
+const heroBg = document.querySelector('.hero__media');
 const heroContent = document.querySelector('.hero__content');
 const playerEl = $('player');
 const hero = $('inicio');
@@ -98,6 +98,25 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 window.addEventListener('resize', onScroll);
 onScroll();
+
+// ===== Video de fondo del hero =====
+// No bloquea la carga inicial: el hero se pinta con el poster (30 KB) y el video
+// (3 MB escritorio / 1 MB móvil) se pide recién cuando la página ya cargó y el navegador está libre.
+(function initHeroVideo() {
+  const v = $('heroVideo');
+  if (!v || reduceMotion) return;
+  const c = navigator.connection || {};
+  if (c.saveData || /(^|-)2g$|3g/.test(c.effectiveType || '')) return;   // ahorro de datos / red lenta: solo poster
+  const start = () => {
+    v.src = window.innerWidth <= 920 ? v.dataset.srcSm : v.dataset.srcLg;
+    v.addEventListener('playing', () => v.classList.add('ready'), { once: true });
+    v.play().catch(() => {});
+    // Pausa el video cuando el hero no está visible (ahorra CPU y batería)
+    new IntersectionObserver(([e]) => { e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }, { threshold: 0.05 }).observe($('inicio'));
+  };
+  const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 3000 }) : setTimeout(start, 1500));
+  document.readyState === 'complete' ? idle() : window.addEventListener('load', idle, { once: true });
+})();
 
 // ===== Contadores =====
 const cio = new IntersectionObserver((entries) => {

@@ -1,3 +1,6 @@
 .claude/
 .DS_Store
 Thumbs.db
+
+# Video original pesado (usar solo el recorte en video/)
+img/*Video Oficial*.mp4
