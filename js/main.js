@@ -59,8 +59,7 @@ const heroBg = document.querySelector('.hero__bg');
 const heroContent = document.querySelector('.hero__content');
 const playerEl = $('player');
 const hero = $('inicio');
-const worldmap = $('worldmap');
-const parallaxImgs = [...document.querySelectorAll('.ph img, .feature__art img, .member__photo img')];
+const parallaxImgs = [...document.querySelectorAll('.ph img, .feature__art img, .member__photo img, .sec-bg img')];
 
 let ticking = false;
 function onScroll() {
@@ -77,11 +76,6 @@ function onScroll() {
     heroContent.style.opacity = 1 - p * 1.25;
     playerEl.style.transform = `translate3d(0, ${y * 0.1}px, 0)`;
     playerEl.style.opacity = 1 - p * 0.9;
-  }
-
-  if (worldmap) {
-    const r = worldmap.parentElement.getBoundingClientRect();
-    if (r.bottom > 0 && r.top < vh) worldmap.style.transform = `translate3d(0, ${(r.top + r.height / 2 - vh / 2) * -0.04}px, 0)`;
   }
 
   parallaxImgs.forEach(img => {

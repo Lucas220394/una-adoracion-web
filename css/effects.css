@@ -166,27 +166,35 @@
   .mc__nav--next { right: 12px; }
 }
 
-/* ===== Mapamundi (Nuestra esencia): ocupa una franja propia bajo el contenido ===== */
-#esencia { position: relative; overflow: hidden; padding-bottom: calc(min(100vw, 1400px) * .394 + 60px); }
+/* ===== Mapamundi (Nuestra esencia): detrás de los textos, pin de Montevideo en el espacio libre inferior ===== */
+#esencia { position: relative; overflow: hidden; padding-bottom: 170px; }
 #esencia > .wrap { position: relative; z-index: 1; }
-.worldmap { position: absolute; left: 0; right: 0; bottom: 0; height: calc(min(100vw, 1400px) * .394 + 40px); z-index: 0; pointer-events: none; will-change: transform; }
-.worldmap__inner { position: absolute; bottom: 20px; left: 50%; width: min(100%, 1400px); aspect-ratio: 1000 / 394; transform: translateX(-50%); }
-.worldmap__inner img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; -webkit-mask-image: radial-gradient(ellipse 75% 85% at 50% 55%, #000 45%, transparent 100%); mask-image: radial-gradient(ellipse 75% 85% at 50% 55%, #000 45%, transparent 100%); }
+.worldmap { position: absolute; inset: 0; z-index: 0; pointer-events: none; will-change: transform; }
+.worldmap__inner { position: absolute; bottom: 85px; left: 50%; width: max(150%, 1900px); aspect-ratio: 1000 / 394; transform: translate(-50%, 16.3%); }
+.worldmap__inner img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .32; -webkit-mask-image: radial-gradient(ellipse 75% 90% at 50% 55%, #000 45%, transparent 100%); mask-image: radial-gradient(ellipse 75% 90% at 50% 55%, #000 45%, transparent 100%); }
 
 /* Pines de ciudades */
 .pin { position: absolute; left: calc((var(--lon) + 180) / 360 * 100%); top: calc((84 - var(--lat)) / 142 * 100%); width: 0; height: 0; }
 .pin i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px 3px rgba(242, 92, 42, .7); }
 .pin i::before, .pin i::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1.5px solid var(--accent); animation: ping 2.8s cubic-bezier(.2, .6, .3, 1) infinite; }
 .pin i::after { animation-delay: 1.4s; }
-.pin:nth-of-type(2n) i::before { animation-delay: .5s; }
-.pin:nth-of-type(3n) i::after { animation-delay: 2.1s; }
 @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(5.5); opacity: 0; } }
 .pin b { position: absolute; left: 14px; top: -11px; padding: 4px 10px; border-radius: 99px; font: 500 .62rem/1 var(--font); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; color: var(--text); background: rgba(255, 255, 255, .1); border: 1px solid var(--glass-brd); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .pin--l b { left: auto; right: 14px; }
 @media (max-width: 920px) {
-  #esencia { padding-bottom: 440px; }
-  .worldmap { height: 434px; }
-  .worldmap__inner { width: 1000px; left: 40.5%; transform: translateX(-40.5%); }
+  .worldmap__inner { width: 1900px; left: 0; transform: translate(calc(-34.4% + 130px), 16.3%); }
   .pin b { font-size: .54rem; padding: 3px 8px; }
 }
 @media (prefers-reduced-motion: reduce) { .pin i::before, .pin i::after { animation: none; opacity: .5; } }
+
+/* ===== Subtítulo del carrusel ===== */
+.subhead { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 3.2vw, 2.2rem); text-transform: uppercase; letter-spacing: -.01em; line-height: 1.1; margin: 72px 0 28px; }
+
+/* ===== Fondo de sección con foto (Próximas fechas) ===== */
+#fechas { position: relative; overflow: hidden; }
+#fechas > .wrap { position: relative; z-index: 1; }
+.sec-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.sec-bg img { width: 100%; height: 118%; margin-top: -9%; object-fit: cover; object-position: center 30%; filter: grayscale(.85) contrast(1.08) brightness(.85); will-change: transform; }
+.sec-bg::after { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(to bottom, var(--bg) 0%, rgba(12, 12, 13, .55) 22%, rgba(12, 12, 13, .62) 78%, var(--bg) 100%),
+  radial-gradient(ellipse 60% 70% at 85% 20%, rgba(242, 92, 42, .22), transparent 70%); }
